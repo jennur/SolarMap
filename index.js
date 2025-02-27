@@ -12,8 +12,8 @@ map.on("click", (event) => {
   const { lng: clickLng, lat: clickLat } = event.lngLat;
 
   // Find the hmax value at the nearest lngLat coordinate in maxHmax (maxHmax.js)
-  const lng = rountToNearestHalf(clickLng);
-  const lat = rountToNearestHalf(clickLat);
+  const lng = roundToNearestHalf(clickLng);
+  const lat = roundToNearestHalf(clickLat);
   const lngLat = `(${lng},${lat})`;
   const hmaxAtLngLat = maxHmax[lngLat] && `${maxHmax[lngLat].toFixed(2)}m` || "–";
 
@@ -31,6 +31,6 @@ map.on("click", (event) => {
     .addTo(map);
 })
 
-function rountToNearestHalf(num) {
+function roundToNearestHalf(num) {
   return (Math.round(num*2)/2).toFixed(1);
 }
